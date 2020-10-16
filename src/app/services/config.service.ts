@@ -6,4 +6,8 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable()
 export class ConfigService {
   constructor(private http: HttpClient) { }
+    championsUrl = 'assets/champion.json';
+    getChampions() {
+        return this.http.get(this.championsUrl);
+    }
 }
