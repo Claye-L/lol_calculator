@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DDragon, RiotAPITypes } from '@fightmegg/riot-api';
+
 
 @Component({
   selector: 'app-champion-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChampionListComponent implements OnInit {
 
-  constructor() { }
+  ddragon: DDragon;
+  champs: RiotAPITypes.DDragon.DDragonChampionListDTO;
+  constructor() { 
+    this.ddragon = new DDragon();
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    this.champs = await this.ddragon.champion.all();
+    console.log(this.champs);
   }
 
 }

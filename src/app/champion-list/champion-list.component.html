@@ -1,1 +1,6 @@
-<p>champion-list works!</p>
+<p>champion list</p>
+<table>
+    <tr *ngFor="let champ of champs;">
+        {{ champ.id }} : {{ champ.name }}
+    </tr>
+</table>
